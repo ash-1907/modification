@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Static Site — Portfolio</title>
+  <style>
+    /* ---------- Reset & base ---------- */
+    :root{
+      --bg:#f6f9fc;
+      --card:#ffffff;
+      --accent:#0f6fff;
+      --muted:#6b7280;
+      --glass: rgba(255,255,255,0.6);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      background: linear-gradient(180deg,#eef6ff 0%,var(--bg) 100%);
+      color:#111827;
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* ---------- Layout ---------- */
+    .container{max-width:1100px;margin:32px auto;padding:20px}
+    header{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;margin-bottom:28px;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:52px;height:52px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),#7cc7ff);
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;
+      box-shadow:0 6px 20px rgba(15,111,255,0.12);
+      font-size:18px;
+    }
+    nav a{
+      margin-left:12px;text-decoration:none;color:var(--muted);font-weight:600;
+    }
+    nav a:hover{color:var(--accent)}
+
+    /* ---------- Hero ---------- */
+    .hero{
+      background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.65));
+      border-radius:14px;padding:28px;display:flex;gap:24px;align-items:center;
+      box-shadow:0 6px 20px rgba(16,24,40,0.06);
+    }
+    .hero .left{flex:1}
+    .hero h1{font-size:28px;margin-bottom:8px}
+    .hero p{color:var(--muted);margin-bottom:14px}
+    .cta{
+      display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);
+      color:white;text-decoration:none;font-weight:700;
+    }
+
+    /* ---------- Cards / sections ---------- */
+    .grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px;
+    }
+    .card{
+      background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(12,16,22,0.04);
+    }
+    h2{font-size:16px;margin-bottom:8px}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* ---------- Projects list ---------- */
+    .projects{display:flex;flex-direction:column;gap:12px}
+    .project{
+      display:flex;gap:12px;align-items:center;padding:10px;border-radius:10px;background:linear-gradient(180deg,var(--glass),transparent);
+    }
+    .thumb{width:72px;height:56px;border-radius:8px;flex-shrink:0;background:linear-gradient(135deg,#ffe7a3,#ffb3a3);display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    /* ---------- Contact ---------- */
+    .contact{display:flex;gap:20px;flex-wrap:wrap}
+    .contact .info{flex:1;min-width:220px}
+    .contact .form{flex:1;min-width:260px;background:linear-gradient(180deg,#fff, #fbfdff);padding:14px;border-radius:10px}
+    .field{display:flex;flex-direction:column;margin-bottom:10px}
+    label{font-size:13px;margin-bottom:6px;color:#334155}
+    input,textarea{
+      padding:10px;border-radius:8px;border:1px solid #e6edf4;font-size:14px;
+      background:white;resize:vertical;
+    }
+    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:700}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* ---------- Footer ---------- */
+    footer{margin-top:26px;text-align:center;color:var(--muted);font-size:13px;padding:14px}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:900px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .hero{flex-direction:column;align-items:flex-start}
+    }
+    @media (max-width:640px){
+      .grid{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start}
+      nav a{margin-left:8px;font-size:14px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">AS</div>
+        <div>
+          <div style="font-weight:800">Asha S.</div>
+          <div style="font-size:13px;color:var(--muted)">Frontend • DevOps • Networking</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="left">
+        <h1 id="hero-title">Hi — I'm Asha. I build simple, reliable web experiences.</h1>
+        <p class="muted">I focus on responsive static sites, small web tools, and networking automation. This is a minimal, no-JS example page that is easy to edit.</p>
+        <a class="cta" href="#projects">See my work</a>
+      </div>
+      <div style="width:260px;min-width:180px">
+        <div style="height:150px;border-radius:12px;background:linear-gradient(135deg,#f6d365,#fda085);display:flex;align-items:center;justify-content:center;font-weight:700;color:#5b2e00">
+          Featured
+        </div>
+      </div>
+    </section>
+
+    <div class="grid" style="margin-top:20px">
+      <div class="card" id="about">
+        <h2>About</h2>
+        <p class="muted">I'm an early-career engineer who enjoys making small tools that help teams ship faster. I believe in readable code, good documentation, and solid backups.</p>
+        <ul style="margin-top:10px;font-size:14px;color:#111827">
+          <li>✅ Static sites & HTML/CSS</li>
+          <li>✅ Linux & basic networking</li>
+          <li>✅ DevOps fundamentals (CI/CD)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Skills</h2>
+        <p class="muted">A quick snapshot</p>
+        <div style="margin-top:10px">
+          <div class="small">HTML & CSS — proficient</div>
+          <div class="small">Linux basics — comfortable</div>
+          <div class="small">Git & GitHub — daily use</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Download</h2>
+        <p class="muted">Resume and sample files</p>
+        <p style="margin-top:10px"><a class="btn" href="mailto:example@example.com?subject=Request%20for%20Resume">Request Resume</a></p>
+        <p class="small" style="margin-top:8px">Or replace the mailto with a link to a PDF once you have it hosted.</p>
+      </div>
+    </div>
+
+    <section style="margin-top:22px">
+      <div class="card" id="projects">
+        <h2>Selected Projects</h2>
+        <p class="muted">Small, focused web projects (static)</p>
+
+        <div class="projects" style="margin-top:12px">
+          <div class="project">
+            <div class="thumb">P1</div>
+            <div>
+              <div style="font-weight:700">Static Docs Site</div>
+              <div class="muted">Clean layout for technical docs — pure HTML/CSS</div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="thumb">P2</div>
+            <div>
+              <div style="font-weight:700">Network Cheat-sheet</div>
+              <div class="muted">Printable quick-reference for CCNA topics</div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="thumb">P3</div>
+            <div>
+              <div style="font-weight:700">Portfolio (this template)</div>
+              <div class="muted">Minimal, responsive, easy to customize</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:18px" class="card" id="contact">
+      <h2>Contact</h2>
+      <div class="contact" style="margin-top:12px">
+        <div class="info">
+          <p class="muted">Want to work together? Reach out by email or use the form.</p>
+          <p style="margin-top:8px"><strong>Email</strong><br><a href="mailto:example@example.com">example@example.com</a></p>
+          <p style="margin-top:6px"><strong>Location</strong><br><span class="muted">Bengaluru, India</span></p>
+        </div>
+
+        <div class="form" aria-label="Contact form (non-functional)">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" placeholder="you@example.com" />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" placeholder="Write a short message"></textarea>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <a class="btn" href="mailto:example@example.com?subject=Contact%20from%20Website">Send</a>
+            <span class="small">This is a static demo — use mailto for real delivery.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Asha S. • Built with simple HTML & CSS
+    </footer>
+  </div>
+
+  <!-- Inline script only for dynamic year (optional) -->
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
